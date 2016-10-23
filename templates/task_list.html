@@ -7,15 +7,27 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
     <h1>TODO. task management program</h1>
+    <table>
 
-    {% for task in tasks %}
-        <p>{{ task.name }}</p>
-        <p>{{ task.status }}</p>
-        <p>{{ task.deadline }}</p>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Deadline</th>
+        </tr>
 
-        <a href="/task_list/{{ task.key.id() }}/edit">Edit</a>
-        <a href="/task_list/{{ task.key.id() }}/delete">Delete</a>
-   {% endfor %}
+        {% for task in tasks %}
 
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.deadline }}</td>
+            <td><a href="/task_list/{{ task.key.id() }}/edit">Edit</a></td>
+            <td><a href="/task_list/{{ task.key.id() }}/delete">Delete</a></td>
+        </tr>
+
+        {% endfor %}
+
+
+    </table>
 </body>
 </html>
