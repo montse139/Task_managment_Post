@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<br>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TODO task management program</title>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+    <h1>TODO. task management program</h1>
+    <form action="/task_list/{{ task.key.id() }}/delete" method="post">
+        <p><b>Would you like to delete this task?</b></p>
+        <p>{{ task.name }}</p>
+        <button type="submit">YES, delete!</button>
+    </form>
+</head>
+<body>
+
+</body>
+</html>

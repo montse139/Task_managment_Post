@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<br>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TODO task management program</title>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+    <h1>TODO. task management program</h1>
+
+    {% for task in tasks %}
+        <p>{{ task.name }}</p>
+        <p>{{ task.status }}</p>
+        <p>{{ task.deadline }}</p>
+
+        <a href="/task_list/{{ task.key.id() }}/edit">Edit</a>
+        <a href="/task_list/{{ task.key.id() }}/delete">Delete</a>
+   {% endfor %}
+
+</body>
+</html>
