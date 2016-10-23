@@ -67,13 +67,12 @@ class EditTaskHandler(BaseHandler):
         new_name = self.request.get("name")
         new_status = self.request.get("status")
         new_deadline = self.request.get("deadline")
-
         task = Task.get_by_id(int(task_id))
         task.name = new_name
         task.status = new_status
         task.deadline = new_deadline
         task.put()
-        return self.redirect_to("task_list.html")
+        return self.redirect_to("list")
 
 
 class DeleteTaskHandler(BaseHandler):
@@ -85,11 +84,11 @@ class DeleteTaskHandler(BaseHandler):
     def post(self, task_id):
         task = Task.get_by_id(int(task_id))
         task.key.delete()
-        return self.redirect_to("task_list.html")
+        return self.redirect_to("list")
 
 app = webapp2.WSGIApplication([
     webapp2.Route('/', MainHandler),
-    webapp2.Route('/task_list', TaskListHandler),
+    webapp2.Route('/task_list', TaskListHandler, name="list"),
     webapp2.Route('/task_list/<task_id:\d+>/edit', EditTaskHandler),
     webapp2.Route('/task_list/<task_id:\d+>/delete', DeleteTaskHandler)
 ], debug=True)# Task_managment_Post
